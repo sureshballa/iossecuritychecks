@@ -13,7 +13,26 @@
 		7B0C63901C6E338800F71CAF /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0C638E1C6E338800F71CAF /* Main.storyboard */; };
 		7B0C63921C6E338800F71CAF /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 7B0C63911C6E338800F71CAF /* Assets.xcassets */; };
 		7B0C63951C6E338800F71CAF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 7B0C63931C6E338800F71CAF /* LaunchScreen.storyboard */; };
+		7B0C63BE1C6E3CC000F71CAF /* IBViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C63BC1C6E3CC000F71CAF /* IBViewController.m */; };
+		7B0C63BF1C6E3CC000F71CAF /* IBViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 7B0C63BD1C6E3CC000F71CAF /* IBViewController.xib */; };
+		7B0C63C11C6E3CF000F71CAF /* DeviceChecksLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0C63C01C6E3CF000F71CAF /* DeviceChecksLib.framework */; };
+		7B0C63C21C6E447800F71CAF /* DeviceChecksLib.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0C63C01C6E3CF000F71CAF /* DeviceChecksLib.framework */; };
+		7B0C63C31C6E447800F71CAF /* DeviceChecksLib.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0C63C01C6E3CF000F71CAF /* DeviceChecksLib.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 /* End PBXBuildFile section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		7B0C63C41C6E447800F71CAF /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				7B0C63C31C6E447800F71CAF /* DeviceChecksLib.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		7B0C63821C6E338800F71CAF /* DeviceChecksApp.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DeviceChecksApp.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -26,6 +45,10 @@
 		7B0C63911C6E338800F71CAF /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		7B0C63941C6E338800F71CAF /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		7B0C63961C6E338800F71CAF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		7B0C63BB1C6E3CC000F71CAF /* IBViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = IBViewController.h; sourceTree = "<group>"; };
+		7B0C63BC1C6E3CC000F71CAF /* IBViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = IBViewController.m; sourceTree = "<group>"; };
+		7B0C63BD1C6E3CC000F71CAF /* IBViewController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = IBViewController.xib; sourceTree = "<group>"; };
+		7B0C63C01C6E3CF000F71CAF /* DeviceChecksLib.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = DeviceChecksLib.framework; path = "../../../Library/Developer/Xcode/DerivedData/DeviceChecks-anhspdebnzztsbghqlfaxhnierhc/Build/Products/Debug-iphoneos/DeviceChecksLib.framework"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -33,6 +56,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7B0C63C11C6E3CF000F71CAF /* DeviceChecksLib.framework in Frameworks */,
+				7B0C63C21C6E447800F71CAF /* DeviceChecksLib.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -42,6 +67,7 @@
 		7B0C63791C6E338800F71CAF = {
 			isa = PBXGroup;
 			children = (
+				7B0C63C01C6E3CF000F71CAF /* DeviceChecksLib.framework */,
 				7B0C63841C6E338800F71CAF /* DeviceChecksApp */,
 				7B0C63831C6E338800F71CAF /* Products */,
 			);
@@ -58,6 +84,9 @@
 		7B0C63841C6E338800F71CAF /* DeviceChecksApp */ = {
 			isa = PBXGroup;
 			children = (
+				7B0C63BB1C6E3CC000F71CAF /* IBViewController.h */,
+				7B0C63BC1C6E3CC000F71CAF /* IBViewController.m */,
+				7B0C63BD1C6E3CC000F71CAF /* IBViewController.xib */,
 				7B0C63881C6E338800F71CAF /* AppDelegate.h */,
 				7B0C63891C6E338800F71CAF /* AppDelegate.m */,
 				7B0C638B1C6E338800F71CAF /* ViewController.h */,
@@ -89,6 +118,7 @@
 				7B0C637E1C6E338800F71CAF /* Sources */,
 				7B0C637F1C6E338800F71CAF /* Frameworks */,
 				7B0C63801C6E338800F71CAF /* Resources */,
+				7B0C63C41C6E447800F71CAF /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -139,6 +169,7 @@
 				7B0C63951C6E338800F71CAF /* LaunchScreen.storyboard in Resources */,
 				7B0C63921C6E338800F71CAF /* Assets.xcassets in Resources */,
 				7B0C63901C6E338800F71CAF /* Main.storyboard in Resources */,
+				7B0C63BF1C6E3CC000F71CAF /* IBViewController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -152,6 +183,7 @@
 				7B0C638D1C6E338800F71CAF /* ViewController.m in Sources */,
 				7B0C638A1C6E338800F71CAF /* AppDelegate.m in Sources */,
 				7B0C63871C6E338800F71CAF /* main.m in Sources */,
+				7B0C63BE1C6E3CC000F71CAF /* IBViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
