@@ -16,6 +16,8 @@
 @implementation DeviceChecks
 
 BOOL _byPass;
+BOOL _isBluetoothOn;
+
 
 - (id)initWithBybassFlag:(BOOL)byPass
 {
@@ -23,6 +25,13 @@ BOOL _byPass;
     if (self) {
         _byPass = byPass;
     }
+    
+    NSDictionary *options = @{CBCentralManagerOptionShowPowerAlertKey: @NO};
+    
+    self.bluetoothManager = [[CBCentralManager alloc] initWithDelegate:self queue:nil options:options];
+    
+    [self centralManagerDidUpdateState:self.bluetoothManager];
+    
     return self;
 }
 
@@ -107,26 +116,7 @@ BOOL _byPass;
         return false;
     }
     
-    BOOL isEnabled = NO;
-    
-    CBCentralManager *bluetoothManager = [[CBCentralManager alloc] init];
-    
-    NSString *stateString = nil;
-    
-    switch(bluetoothManager.state)
-    {
-        case CBCentralManagerStateResetting: stateString = @"The connection with the system service was momentarily lost, update imminent."; break;
-        case CBCentralManagerStateUnsupported: stateString = @"The platform doesn't support Bluetooth Low Energy."; break;
-        case CBCentralManagerStateUnauthorized: stateString = @"The app is not authorized to use Bluetooth Low Energy."; break;
-        case CBCentralManagerStatePoweredOff: stateString = @"Bluetooth is currently powered off."; break;
-        case CBCentralManagerStatePoweredOn:
-            stateString = @"Bluetooth is currently powered on and available to use.";
-            isEnabled = YES;
-            break;
-        default: stateString = @"State unknown, update imminent."; break;
-    }
-
-    return isEnabled;
+    return self.bluetoothManager.state == CBCentralManagerStatePoweredOn;
 }
 
 -(BOOL)isUSBConnected
@@ -150,6 +140,24 @@ BOOL _byPass;
     }
 
     return isEnabled;
+}
+
+- (void)centralManagerDidUpdateState:(CBCentralManager *)central
+{
+    _isBluetoothOn = NO;
+    NSString *stateString = nil;
+    switch(self.bluetoothManager.state)
+    {
+        case CBCentralManagerStateResetting: stateString = @"The connection with the system service was momentarily lost, update imminent."; break;
+        case CBCentralManagerStateUnsupported: stateString = @"The platform doesn't support Bluetooth Low Energy."; break;
+        case CBCentralManagerStateUnauthorized: stateString = @"The app is not authorized to use Bluetooth Low Energy."; break;
+        case CBCentralManagerStatePoweredOff: stateString = @"Bluetooth is currently powered off."; break;
+        case CBCentralManagerStatePoweredOn:
+            stateString = @"Bluetooth is currently powered on and available to use.";
+            _isBluetoothOn = YES;
+            break;
+        default: stateString = @"State unknown, update imminent."; break;
+    }
 }
 
 @end

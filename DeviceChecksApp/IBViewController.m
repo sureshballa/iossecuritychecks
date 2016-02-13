@@ -20,8 +20,10 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view from its nib.
     
+    self.deviceChecks = [[DeviceChecks alloc] initWithBybassFlag:NO];
+
     
-    [self detectBluetooth];
+    //[self detectBluetooth];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -194,6 +196,31 @@
     [alert show];
 
     
+}
+
+
+- (IBAction)checkBluetoothTouchUpInside:(id)sender {
+    
+    NSString *resultString = nil;
+    
+    if([self.deviceChecks isBluetoothEnabled])
+    {
+        resultString = @"Enabled";
+        
+    }
+    else
+    {
+        resultString = @"Disabled";
+        
+    }
+    
+    UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bluetooth state"
+                                                    message:resultString
+                                                   delegate:nil
+                                          cancelButtonTitle:@"Okay" otherButtonTitles:nil];
+    
+    [alert show];
+
 }
 
 @end

@@ -8,9 +8,12 @@
 
 #import <UIKit/UIKit.h>
 #import <CoreBluetooth/CoreBluetooth.h>
+#import <DeviceChecksLib/DeviceChecksLib.h>
+
 
 @interface IBViewController : UIViewController
 
 @property CBCentralManager *bluetoothManager;
+@property DeviceChecks *deviceChecks;
 
 @end

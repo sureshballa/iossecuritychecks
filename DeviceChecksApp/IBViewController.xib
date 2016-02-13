@@ -43,6 +43,13 @@
                         <action selector="checkJailBrokenTouchUpInside:" destination="-1" eventType="touchUpInside" id="SOp-SN-obg"/>
                     </connections>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="s4w-Nn-Vb4">
+                    <rect key="frame" x="82" y="328" width="156" height="30"/>
+                    <state key="normal" title="Check Bluetooth"/>
+                    <connections>
+                        <action selector="checkBluetoothTouchUpInside:" destination="-1" eventType="touchUpInside" id="6fu-3m-cE5"/>
+                    </connections>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
             <point key="canvasLocation" x="325" y="375"/>

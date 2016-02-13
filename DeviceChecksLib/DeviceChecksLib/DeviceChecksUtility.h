@@ -7,9 +7,13 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <CoreBluetooth/CoreBluetooth.h>
 #import <UIKit/UIKit.h>
 
 @interface DeviceChecks : NSObject
+
+@property CBCentralManager *bluetoothManager;
+
 
 - (id)initWithBybassFlag:(BOOL)byPass;
 
