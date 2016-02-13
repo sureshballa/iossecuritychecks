@@ -11,8 +11,8 @@
 		7B0C63B21C6E34F800F71CAF /* DeviceChecksUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0C63B11C6E34F800F71CAF /* DeviceChecksUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B0C63B41C6E35AB00F71CAF /* DeviceChecksUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C63B31C6E35AB00F71CAF /* DeviceChecksUtility.m */; };
 		7B0C63B61C6E361400F71CAF /* ChecksumUtilities.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0C63B51C6E361400F71CAF /* ChecksumUtilities.h */; settings = {ATTRIBUTES = (Public, ); }; };
-		7B0C63B81C6E364500F71CAF /* ChecksumUtilities.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C63B71C6E364500F71CAF /* ChecksumUtilities.m */; };
 		7B0C63BA1C6E387700F71CAF /* CoreBluetooth.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7B0C63B91C6E387700F71CAF /* CoreBluetooth.framework */; };
+		7B0C63C61C6F020300F71CAF /* ChecksumUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = 7B0C63C51C6F020300F71CAF /* ChecksumUtility.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,8 +22,8 @@
 		7B0C63B11C6E34F800F71CAF /* DeviceChecksUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DeviceChecksUtility.h; sourceTree = "<group>"; };
 		7B0C63B31C6E35AB00F71CAF /* DeviceChecksUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DeviceChecksUtility.m; sourceTree = "<group>"; };
 		7B0C63B51C6E361400F71CAF /* ChecksumUtilities.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChecksumUtilities.h; sourceTree = "<group>"; };
-		7B0C63B71C6E364500F71CAF /* ChecksumUtilities.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChecksumUtilities.m; path = "#import <Foundation/Foundation.h> #include <CommonCrypto/CommonDigest.h>  @interface AiChecksum : NSObject   /**  * Get the md5 hash of a file  *  * @returns\t\tNSString  * @since\t\t20140120  * @author\t\tcostmo  * @param\t\tpath\t\tFull path to the file  */ +(NSString *)md5HashOfPath:(NSString *)path;  /**  * Get the sha1 hash of a file  *  * @returns\t\tNSString  * @since\t\t20140120  * @author\t\tcostmo  * @param\t\tpath\t\tFull path to the file  */ChecksumUtilities.m"; sourceTree = "<group>"; };
 		7B0C63B91C6E387700F71CAF /* CoreBluetooth.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreBluetooth.framework; path = System/Library/Frameworks/CoreBluetooth.framework; sourceTree = SDKROOT; };
+		7B0C63C51C6F020300F71CAF /* ChecksumUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChecksumUtility.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,7 +63,7 @@
 				7B0C63B11C6E34F800F71CAF /* DeviceChecksUtility.h */,
 				7B0C63B31C6E35AB00F71CAF /* DeviceChecksUtility.m */,
 				7B0C63B51C6E361400F71CAF /* ChecksumUtilities.h */,
-				7B0C63B71C6E364500F71CAF /* ChecksumUtilities.m */,
+				7B0C63C51C6F020300F71CAF /* ChecksumUtility.m */,
 			);
 			path = DeviceChecksLib;
 			sourceTree = "<group>";
@@ -148,8 +148,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				7B0C63B81C6E364500F71CAF /* ChecksumUtilities.m in Sources */,
 				7B0C63B41C6E35AB00F71CAF /* DeviceChecksUtility.m in Sources */,
+				7B0C63C61C6F020300F71CAF /* ChecksumUtility.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
