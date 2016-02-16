@@ -9,10 +9,30 @@
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
+		<key>UniversalDeviceChecksLib 2.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>UniversalDeviceChecksLib.xcscheme</key>
+		<dict>
+			<key>orderHint</key>
+			<integer>2</integer>
+		</dict>
 	</dict>
 	<key>SuppressBuildableAutocreation</key>
 	<dict>
 		<key>7B0C63A51C6E343700F71CAF</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7B41C5F91C72D14B00698316</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>7BD9028B1C72DF5800E4A74D</key>
 		<dict>
 			<key>primary</key>
 			<true/>

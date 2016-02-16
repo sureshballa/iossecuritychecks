@@ -1,0 +1,43 @@
+{
+  'version': 0,
+  'case-sensitive': 'false',
+  'roots': [
+    {
+      'type': 'directory',
+      'name': "/Users/suresh.balla/Library/Developer/Xcode/DerivedData/DeviceChecks-anhspdebnzztsbghqlfaxhnierhc/Build/Products/Debug-iphonesimulator/DeviceChecksLib.framework/Headers",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "ChecksumUtilities.h",
+          'external-contents': "/Users/suresh.balla/Projects/DeviceChecks/DeviceChecksApp/DeviceChecksLib/DeviceChecksLib/ChecksumUtilities.h"
+        },
+        {
+          'type': 'file',
+          'name': "DeviceChecksLib-Swift.h",
+          'external-contents': "/Users/suresh.balla/Library/Developer/Xcode/DerivedData/DeviceChecks-anhspdebnzztsbghqlfaxhnierhc/Build/Products/Debug-iphonesimulator/DeviceChecksLib.framework/Headers/DeviceChecksLib-Swift.h"
+        },
+        {
+          'type': 'file',
+          'name': "DeviceChecksLib.h",
+          'external-contents': "/Users/suresh.balla/Projects/DeviceChecks/DeviceChecksApp/DeviceChecksLib/DeviceChecksLib/DeviceChecksLib.h"
+        },
+        {
+          'type': 'file',
+          'name': "DeviceChecksUtility.h",
+          'external-contents': "/Users/suresh.balla/Projects/DeviceChecks/DeviceChecksApp/DeviceChecksLib/DeviceChecksLib/DeviceChecksUtility.h"
+        }
+      ]
+    },
+    {
+      'type': 'directory',
+      'name': "/Users/suresh.balla/Library/Developer/Xcode/DerivedData/DeviceChecks-anhspdebnzztsbghqlfaxhnierhc/Build/Products/Debug-iphonesimulator/DeviceChecksLib.framework/Modules",
+      'contents': [
+        {
+          'type': 'file',
+          'name': "module.modulemap",
+          'external-contents': "/Users/suresh.balla/Projects/DeviceChecks/DeviceChecksApp/DeviceChecksLib/build/DeviceChecksLib.build/Debug-iphonesimulator/DeviceChecksLib.build/module.modulemap"
+        }
+      ]
+    }
+  ]
+}

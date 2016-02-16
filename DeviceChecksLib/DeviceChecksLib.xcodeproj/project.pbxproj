@@ -6,6 +6,20 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		7BD9028B1C72DF5800E4A74D /* UniversalDeviceChecksLib */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 7BD9028C1C72DF5800E4A74D /* Build configuration list for PBXAggregateTarget "UniversalDeviceChecksLib" */;
+			buildPhases = (
+				7BD9028F1C72DFB000E4A74D /* ShellScript */,
+			);
+			dependencies = (
+			);
+			name = UniversalDeviceChecksLib;
+			productName = UniversalDeviceChecksLib;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		7B0C63AA1C6E343700F71CAF /* DeviceChecksLib.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0C63A91C6E343700F71CAF /* DeviceChecksLib.h */; settings = {ATTRIBUTES = (Public, ); }; };
 		7B0C63B21C6E34F800F71CAF /* DeviceChecksUtility.h in Headers */ = {isa = PBXBuildFile; fileRef = 7B0C63B11C6E34F800F71CAF /* DeviceChecksUtility.h */; settings = {ATTRIBUTES = (Public, ); }; };
@@ -114,6 +128,9 @@
 					7B0C63A51C6E343700F71CAF = {
 						CreatedOnToolsVersion = 7.2;
 					};
+					7BD9028B1C72DF5800E4A74D = {
+						CreatedOnToolsVersion = 7.1.1;
+					};
 				};
 			};
 			buildConfigurationList = 7B0C63A01C6E343700F71CAF /* Build configuration list for PBXProject "DeviceChecksLib" */;
@@ -129,6 +146,7 @@
 			projectRoot = "";
 			targets = (
 				7B0C63A51C6E343700F71CAF /* DeviceChecksLib */,
+				7BD9028B1C72DF5800E4A74D /* UniversalDeviceChecksLib */,
 			);
 		};
 /* End PBXProject section */
@@ -142,6 +160,22 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		7BD9028F1C72DFB000E4A74D /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "#!/bin/sh\n\nUNIVERSAL_OUTPUTFOLDER=${BUILD_DIR}/${CONFIGURATION}-universal\n\n# make sure the output directory exists\nmkdir -p \"${UNIVERSAL_OUTPUTFOLDER}\"\n\n# Step 1. Build Device and Simulator versions\nxcodebuild -target \"${PROJECT_NAME}\" ONLY_ACTIVE_ARCH=NO -configuration ${CONFIGURATION} -sdk iphoneos  BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\nxcodebuild -target \"${PROJECT_NAME}\" -configuration ${CONFIGURATION} -sdk iphonesimulator ONLY_ACTIVE_ARCH=NO BUILD_DIR=\"${BUILD_DIR}\" BUILD_ROOT=\"${BUILD_ROOT}\" clean build\n\n# Step 2. Copy the framework structure (from iphoneos build) to the universal folder\ncp -R \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework\" \"${UNIVERSAL_OUTPUTFOLDER}/\"\n\n# Step 3. Copy Swift modules from iphonesimulator build (if it exists) to the copied framework directory\nSIMULATOR_SWIFT_MODULES_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule/.\"\nif [ -d \"${SIMULATOR_SWIFT_MODULES_DIR}\" ]; then\ncp -R \"${SIMULATOR_SWIFT_MODULES_DIR}\" \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/Modules/${PROJECT_NAME}.swiftmodule\"\nfi\n\n# Step 4. Create universal binary file using lipo and place the combined executable in the copied framework directory\nlipo -create -output \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/${PROJECT_NAME}.framework/${PROJECT_NAME}\" \"${BUILD_DIR}/${CONFIGURATION}-iphoneos/${PROJECT_NAME}.framework/${PROJECT_NAME}\"\n\n# Step 5. Convenience step to copy the framework to the project's directory\ncp -R \"${UNIVERSAL_OUTPUTFOLDER}/${PROJECT_NAME}.framework\" \"${PROJECT_DIR}\"\n\n# Step 6. Convenience step to open the project's directory in Finder\nopen \"${PROJECT_DIR}\"";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		7B0C63A11C6E343700F71CAF /* Sources */ = {
@@ -253,6 +287,7 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DeviceChecksLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sureshballa.com.DeviceChecksLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -269,10 +304,25 @@
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
 				INFOPLIST_FILE = DeviceChecksLib/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
+				IPHONEOS_DEPLOYMENT_TARGET = 9.1;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = sureshballa.com.DeviceChecksLib;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SKIP_INSTALL = YES;
+			};
+			name = Release;
+		};
+		7BD9028D1C72DF5800E4A74D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		7BD9028E1C72DF5800E4A74D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
 			};
 			name = Release;
 		};
@@ -293,6 +343,15 @@
 			buildConfigurations = (
 				7B0C63AF1C6E343700F71CAF /* Debug */,
 				7B0C63B01C6E343700F71CAF /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		7BD9028C1C72DF5800E4A74D /* Build configuration list for PBXAggregateTarget "UniversalDeviceChecksLib" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				7BD9028D1C72DF5800E4A74D /* Debug */,
+				7BD9028E1C72DF5800E4A74D /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 		};

@@ -1,0 +1,1 @@
+ const unsigned char DeviceChecksLibVersionString[] __attribute__ ((used)) = "@(#)PROGRAM:DeviceChecksLib  PROJECT:DeviceChecksLib-1" "\n"; const double DeviceChecksLibVersionNumber __attribute__ ((used)) = (double)1.;
