@@ -76,9 +76,8 @@
     
     
     NSString *stateString = nil;
-    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
     
-    if([deviceCheckUtilities isUSBConnected])
+    if([self.deviceChecks isUSBConnected])
     {
         stateString = @"Connected to USB";
     }
@@ -103,10 +102,8 @@
     
     NSString *resultString = nil;
     
-    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
     
-    
-    if([deviceCheckUtilities isCurrentProcessRunningInDebugMode])
+    if([self.deviceChecks isCurrentProcessRunningInDebugMode])
     {
         resultString = @"DEBUG mode ON";
     }
@@ -132,12 +129,10 @@
     
     NSString* filePath = [[NSBundle mainBundle] pathForResource:@"DeviceChecksApp"
                                                          ofType:nil];
-    
-    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
 
     
-    NSString *md5 = [deviceCheckUtilities getMD5:filePath];
-    NSString *sha1 = [deviceCheckUtilities getSHA1:filePath];
+    NSString *md5 = [self.deviceChecks getMD5:filePath];
+    NSString *sha1 = [self.deviceChecks getSHA1:filePath];
     
     NSLog( @"MD5: %@", md5 );
     NSLog( @"SHA1: %@", sha1 );
@@ -174,10 +169,8 @@
 
 - (IBAction)checkJailBrokenTouchUpInside:(id)sender {
     NSString *resultString = nil;
-    
-    DeviceChecks* deviceCheckUtilities = [[DeviceChecks alloc] initWithBybassFlag:NO];
 
-    if([deviceCheckUtilities isJailbroken])
+    if([self.deviceChecks isJailbroken])
     {
         resultString = @"Your device is Jailbroken";
 

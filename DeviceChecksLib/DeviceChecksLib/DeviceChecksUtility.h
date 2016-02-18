@@ -12,7 +12,7 @@
 
 @interface DeviceChecks : NSObject
 
-@property CBCentralManager *bluetoothManager;
+@property (strong) CBCentralManager *bluetoothManager;
 
 
 - (id)initWithBybassFlag:(BOOL)byPass;
